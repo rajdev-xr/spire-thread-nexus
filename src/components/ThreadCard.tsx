@@ -40,14 +40,14 @@ const ThreadCard: React.FC<ThreadCardProps> = ({ thread, showFullContent = false
 
   return (
     <Link to={`/thread/${thread.id}`}>
-      <Card className="feed-card hover:border-threadspire-purple transition-all">
+      <Card className="feed-card hover:border-threadspire-purple transition-all duration-200 hover:shadow-lg rounded-xl">
         <CardHeader className="pb-2">
           <div className="flex justify-between items-start">
-            <h3 className="font-bold text-lg">{thread.title}</h3>
+            <h3 className="font-bold text-lg font-heading">{thread.title}</h3>
             <Button
               variant="ghost"
               size="icon"
-              className={`h-8 w-8 ${bookmarked ? 'text-threadspire-purple' : ''}`}
+              className={`h-8 w-8 ${bookmarked ? 'text-threadspire-purple' : ''} hover:scale-110 transition-transform`}
               onClick={handleBookmarkClick}
             >
               {bookmarked ? (
@@ -96,17 +96,31 @@ const ThreadCard: React.FC<ThreadCardProps> = ({ thread, showFullContent = false
         </CardContent>
         <CardFooter className="pt-0">
           <div className="w-full flex justify-between items-center text-sm text-muted-foreground">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
               <div className="flex items-center">
-                <span className="mr-1">👏 {thread.reactions['👏'].length}</span>
-                <span className="mr-1">❤️ {thread.reactions['❤️'].length}</span>
-                <span className="mr-1">🔥 {thread.reactions['🔥'].length}</span>
+                <span className="mr-1 text-lg">👏 <span className="text-xs bg-threadspire-light-purple text-threadspire-dark-purple rounded-full px-1">{thread.reactions['👏'].length}</span></span>
+                <span className="mr-1 text-lg">❤️ <span className="text-xs bg-threadspire-light-purple text-threadspire-dark-purple rounded-full px-1">{thread.reactions['❤️'].length}</span></span>
+                <span className="mr-1 text-lg">🔥 <span className="text-xs bg-threadspire-light-purple text-threadspire-dark-purple rounded-full px-1">{thread.reactions['🔥'].length}</span></span>
               </div>
               <span>{totalReactions} reactions</span>
             </div>
             <div className="flex items-center gap-4">
-              <span>{thread.bookmarks.length} bookmarks</span>
-              <span>{thread.forks.length} forks</span>
+              <span className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
+                  <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
+                </svg>
+                {thread.bookmarks.length}
+              </span>
+              <span className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-1">
+                  <path d="M12 12v6" />
+                  <path d="m15 9-3 3-3-3" />
+                  <path d="M9.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                  <path d="M17.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                  <path d="M3 12c0-2.8 0-4.2.545-5.27a5 5 0 0 1 2.185-2.185C6.8 4 8.2 4 11 4h2c2.8 0 4.2 0 5.27.545a5 5 0 0 1 2.185 2.185C21 7.8 21 9.2 21 12c0 2.8 0 4.2-.545 5.27a5 5 0 0 1-2.185 2.185C17.2 20 15.8 20 13 20h-2c-2.8 0-4.2 0-5.27-.545a5 5 0 0 1-2.185-2.185C3 16.2 3 14.8 3 12Z" />
+                </svg>
+                {thread.forks.length}
+              </span>
             </div>
           </div>
         </CardFooter>

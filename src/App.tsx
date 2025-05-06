@@ -17,6 +17,8 @@ import EditThreadPage from "./pages/EditThreadPage";
 import ThreadDetailPage from "./pages/ThreadDetailPage";
 import MyThreadsPage from "./pages/MyThreadsPage";
 import CollectionsPage from "./pages/CollectionsPage";
+import MyStatsPage from "./pages/MyStatsPage";
+import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -40,6 +42,8 @@ const App = () => (
                 <Route path="/thread/:id" element={<ThreadDetailPage />} />
                 <Route path="/my-threads" element={<MyThreadsPage />} />
                 <Route path="/collections" element={<CollectionsPage />} />
+                <Route path="/my-stats" element={<MyStatsPage />} />
+                <Route path="/about" element={<AboutPage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Layout>

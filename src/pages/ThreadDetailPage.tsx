@@ -52,7 +52,7 @@ const ThreadDetailPage = () => {
   const isBookmarked = isThreadBookmarked(thread.id);
   const userCollections = getUserCollections();
   
-  const handleReaction = (reactionType: keyof Thread['reactions']) => {
+  const handleReaction = (reactionType: '👏' | '❤️' | '🔥' | '💡' | '🙏') => {
     if (!isAuthenticated) {
       toast.error("Please login to react to threads");
       return;
@@ -97,10 +97,10 @@ const ThreadDetailPage = () => {
           </Link>
         </div>
 
-        <Card className="mb-6">
+        <Card className="mb-6 shadow-md hover:shadow-lg transition-shadow duration-300">
           <CardHeader className="pb-0">
             <div className="flex justify-between items-start">
-              <CardTitle className="text-3xl font-bold">{thread.title}</CardTitle>
+              <CardTitle className="text-3xl font-bold font-heading">{thread.title}</CardTitle>
             </div>
             <div className="flex items-center text-sm text-muted-foreground mt-2">
               <span>by {thread.authorName}</span>
@@ -143,20 +143,41 @@ const ThreadDetailPage = () => {
                     variant={hasUserReacted(thread.id, reaction) ? "default" : "outline"}
                     size="sm"
                     onClick={() => handleReaction(reaction)}
-                    className={hasUserReacted(thread.id, reaction) ? "bg-threadspire-purple text-white" : ""}
+                    className={`relative ${hasUserReacted(thread.id, reaction) ? "bg-threadspire-purple text-white" : ""} hover:scale-110 transition-transform duration-200`}
                   >
-                    {reaction} {thread.reactions[reaction].length}
+                    <span className="text-lg">{reaction}</span>
+                    <span className="absolute -top-2 -right-2 bg-threadspire-dark-purple text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                      {thread.reactions[reaction].length}
+                    </span>
                   </Button>
                 ))}
               </div>
               
               <div className="flex gap-2 ml-auto">
+                {/* Fork button */}
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  onClick={handleFork}
+                  className="hover:bg-threadspire-light-purple hover:text-threadspire-dark-purple transition-colors"
+                  disabled={isOwner}
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
+                    <path d="M12 12v6" />
+                    <path d="m15 9-3 3-3-3" />
+                    <path d="M9.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                    <path d="M17.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
+                    <path d="M3 12c0-2.8 0-4.2.545-5.27a5 5 0 0 1 2.185-2.185C6.8 4 8.2 4 11 4h2c2.8 0 4.2 0 5.27.545a5 5 0 0 1 2.185 2.185C21 7.8 21 9.2 21 12c0 2.8 0 4.2-.545 5.27a5 5 0 0 1-2.185 2.185C17.2 20 15.8 20 13 20h-2c-2.8 0-4.2 0-5.27-.545a5 5 0 0 1-2.185-2.185C3 16.2 3 14.8 3 12Z" />
+                  </svg>
+                  Fork ({thread.forks.length})
+                </Button>
+                
                 {/* Bookmark button */}
                 <Button
                   variant={isBookmarked ? "default" : "outline"}
                   size="sm"
                   onClick={handleBookmark}
-                  className={isBookmarked ? "bg-threadspire-purple text-white" : ""}
+                  className={`${isBookmarked ? "bg-threadspire-purple text-white" : ""} hover:scale-105 transition-transform duration-200`}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill={isBookmarked ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
                     <path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"></path>
@@ -168,7 +189,7 @@ const ThreadDetailPage = () => {
                 {isAuthenticated && (
                   <DropdownMenu open={showCollections} onOpenChange={setShowCollections}>
                     <DropdownMenuTrigger asChild>
-                      <Button variant="outline" size="sm">
+                      <Button variant="outline" size="sm" className="hover:bg-threadspire-light-purple hover:text-threadspire-dark-purple transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
                           <path d="M3 3h18v18H3z" />
                           <path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-6" />
@@ -199,23 +220,9 @@ const ThreadDetailPage = () => {
                   </DropdownMenu>
                 )}
                 
-                {/* Fork button */}
-                {!isOwner && (
-                  <Button variant="outline" size="sm" onClick={handleFork}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
-                      <path d="M12 12v6" />
-                      <path d="m15 9-3 3-3-3" />
-                      <path d="M9.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
-                      <path d="M17.5 4a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" />
-                      <path d="M3 12c0-2.8 0-4.2.545-5.27a5 5 0 0 1 2.185-2.185C6.8 4 8.2 4 11 4h2c2.8 0 4.2 0 5.27.545a5 5 0 0 1 2.185 2.185C21 7.8 21 9.2 21 12c0 2.8 0 4.2-.545 5.27a5 5 0 0 1-2.185 2.185C17.2 20 15.8 20 13 20h-2c-2.8 0-4.2 0-5.27-.545a5 5 0 0 1-2.185-2.185C3 16.2 3 14.8 3 12Z" />
-                    </svg>
-                    Fork ({thread.forks.length})
-                  </Button>
-                )}
-                
                 {/* Edit button (if owner) */}
                 {isOwner && (
-                  <Button variant="outline" size="sm" asChild>
+                  <Button variant="outline" size="sm" asChild className="hover:bg-threadspire-light-purple hover:text-threadspire-dark-purple transition-colors">
                     <Link to={`/edit/${thread.id}`}>
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mr-2">
                         <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" />

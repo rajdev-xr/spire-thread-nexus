@@ -5,6 +5,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
 import ThreadCard from '@/components/ThreadCard';
 import { Input } from '@/components/ui/input';
+import { Search } from 'lucide-react';
 
 const ExplorePage = () => {
   const { threads, sortThreads } = useData();
@@ -21,6 +22,15 @@ const ExplorePage = () => {
       publishedThreads.flatMap(thread => thread.tags)
     )
   ).sort();
+
+  // Get trending tags (top 5 most used tags)
+  const trendingTags = [...allTags]
+    .map(tag => ({
+      tag,
+      count: publishedThreads.filter(thread => thread.tags.includes(tag)).length
+    }))
+    .sort((a, b) => b.count - a.count)
+    .slice(0, 5);
   
   // Filter by tag if there's an active tag
   const filteredByTag = activeTag 
@@ -47,21 +57,43 @@ const ExplorePage = () => {
 
   return (
     <div className="container py-8">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <section className="mb-10">
           <div className="mb-8">
-            <h1 className="text-3xl font-bold mb-3">Explore Threads</h1>
+            <h1 className="text-3xl font-bold mb-3 font-heading">Explore Threads</h1>
             <p className="text-muted-foreground">
               Discover wisdom threads on various topics
             </p>
           </div>
           
-          <div className="mb-6">
+          {/* Trending Tags */}
+          <div className="mb-6 overflow-x-auto pb-3">
+            <h2 className="text-sm font-medium text-muted-foreground mb-2">Trending Tags</h2>
+            <div className="flex space-x-2">
+              {trendingTags.map(({ tag, count }) => (
+                <Badge 
+                  key={tag}
+                  onClick={() => setActiveTag(tag === activeTag ? null : tag)} 
+                  className={`cursor-pointer px-3 py-1 whitespace-nowrap ${
+                    activeTag === tag 
+                      ? 'bg-threadspire-purple hover:bg-threadspire-dark-purple text-white' 
+                      : 'bg-threadspire-light-purple text-threadspire-dark-purple hover:bg-threadspire-purple/70'
+                  }`}
+                >
+                  {tag} <span className="ml-1 opacity-70">({count})</span>
+                </Badge>
+              ))}
+            </div>
+          </div>
+          
+          {/* Search */}
+          <div className="relative mb-6">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={18} />
             <Input
               placeholder="Search threads by title, content or tags..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full"
+              className="pl-10 w-full bg-background border-threadspire-light-purple focus:border-threadspire-purple"
             />
           </div>
 
@@ -122,7 +154,7 @@ const ExplorePage = () => {
           </div>
 
           {sortedThreads.length === 0 ? (
-            <Card className="p-8 text-center">
+            <Card className="p-8 text-center shadow-md">
               <p className="text-lg text-muted-foreground">No threads found for this search or filter.</p>
             </Card>
           ) : (
