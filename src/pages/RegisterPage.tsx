@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from '@/components/ui/sonner';
+import { Brain, Sparkles } from 'lucide-react';
 
 const RegisterPage = () => {
   const [name, setName] = useState('');
@@ -49,11 +50,20 @@ const RegisterPage = () => {
   return (
     <div className="container flex items-center justify-center py-16 px-4">
       <div className="w-full max-w-md">
-        <Card className="border-2 border-threadspire-light-purple">
+        <Card className="border-2 border-mindweave-light-sage shadow-gentle">
           <CardHeader className="space-y-1 text-center">
-            <CardTitle className="text-2xl">Create an account</CardTitle>
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="relative">
+                <Brain className="h-8 w-8 text-mindweave-sage" />
+                <Sparkles className="h-4 w-4 text-mindweave-lavender absolute -top-1 -right-1" />
+              </div>
+              <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-mindweave-sage to-mindweave-deep-sage font-heading">
+                MindWeave
+              </span>
+            </div>
+            <CardTitle className="text-2xl text-mindweave-deep-sage">Join MindWeave</CardTitle>
             <CardDescription>
-              Enter your information to create a ThreadSpire account
+              Create your account to start weaving wisdom threads
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -110,18 +120,18 @@ const RegisterPage = () => {
               </div>
               <Button 
                 type="submit" 
-                className="w-full bg-threadspire-purple hover:bg-threadspire-dark-purple text-white"
+                className="w-full bg-mindweave-sage hover:bg-mindweave-deep-sage text-white"
                 disabled={isLoading}
               >
-                {isLoading ? 'Creating Account...' : 'Register'}
+                {isLoading ? 'Creating Account...' : 'Create Account'}
               </Button>
             </form>
           </CardContent>
           <CardFooter className="flex flex-col space-y-4">
             <div className="text-center text-sm">
               Already have an account?{" "}
-              <Link to="/login" className="text-threadspire-purple hover:underline">
-                Login here
+              <Link to="/login" className="text-mindweave-sage hover:underline">
+                Sign in here
               </Link>
             </div>
           </CardFooter>

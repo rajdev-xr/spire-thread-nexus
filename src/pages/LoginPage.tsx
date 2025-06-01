@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { toast } from '@/components/ui/sonner';
+import { Brain, Sparkles } from 'lucide-react';
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -36,7 +37,7 @@ const LoginPage = () => {
   const handleDemoLogin = async () => {
     try {
       setIsLoading(true);
-      await login('demo@threadspire.com', 'password123');
+      await login('demo@mindweave.com', 'password123');
       navigate('/');
     } catch (error) {
       // Error is handled in the login function via toast
@@ -47,11 +48,20 @@ const LoginPage = () => {
   return (
     <div className="container flex items-center justify-center py-16 px-4">
       <div className="w-full max-w-md">
-        <Card className="border-2 border-threadspire-light-purple">
+        <Card className="border-2 border-mindweave-light-sage shadow-gentle">
           <CardHeader className="space-y-1 text-center">
-            <CardTitle className="text-2xl">Login to ThreadSpire</CardTitle>
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="relative">
+                <Brain className="h-8 w-8 text-mindweave-sage" />
+                <Sparkles className="h-4 w-4 text-mindweave-lavender absolute -top-1 -right-1" />
+              </div>
+              <span className="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-mindweave-sage to-mindweave-deep-sage font-heading">
+                MindWeave
+              </span>
+            </div>
+            <CardTitle className="text-2xl text-mindweave-deep-sage">Welcome Back</CardTitle>
             <CardDescription>
-              Enter your email and password to access your account
+              Enter your credentials to access your wisdom threads
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -73,7 +83,7 @@ const LoginPage = () => {
                   <Label htmlFor="password">Password</Label>
                   <Link 
                     to="/forgot-password" 
-                    className="text-xs text-threadspire-purple hover:underline"
+                    className="text-xs text-mindweave-sage hover:underline"
                   >
                     Forgot Password?
                   </Link>
@@ -90,10 +100,10 @@ const LoginPage = () => {
               </div>
               <Button 
                 type="submit" 
-                className="w-full bg-threadspire-purple hover:bg-threadspire-dark-purple text-white"
+                className="w-full bg-mindweave-sage hover:bg-mindweave-deep-sage text-white"
                 disabled={isLoading}
               >
-                {isLoading ? 'Logging in...' : 'Login'}
+                {isLoading ? 'Signing in...' : 'Sign In'}
               </Button>
             </form>
             <div className="relative">
@@ -118,9 +128,9 @@ const LoginPage = () => {
           </CardContent>
           <CardFooter className="flex flex-col space-y-4">
             <div className="text-center text-sm">
-              Don't have an account?{" "}
-              <Link to="/register" className="text-threadspire-purple hover:underline">
-                Register here
+              New to MindWeave?{" "}
+              <Link to="/register" className="text-mindweave-sage hover:underline">
+                Create an account
               </Link>
             </div>
           </CardFooter>

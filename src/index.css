@@ -14,10 +14,10 @@
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 15%;
 
-    --primary: 255 82% 74%;
+    --primary: 139 23% 59%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 255 30% 85%;
+    --secondary: 139 23% 85%;
     --secondary-foreground: 240 10% 15%;
 
     --muted: 260 20% 96%;
@@ -31,7 +31,7 @@
 
     --border: 260 20% 92%;
     --input: 260 20% 92%;
-    --ring: 255 82% 74%;
+    --ring: 139 23% 59%;
 
     --radius: 0.5rem;
 
@@ -55,10 +55,10 @@
     --popover: 240 10% 12%;
     --popover-foreground: 210 20% 98%;
 
-    --primary: 255 70% 70%;
+    --primary: 139 25% 65%;
     --primary-foreground: 240 10% 12%;
 
-    --secondary: 255 25% 25%;
+    --secondary: 139 15% 25%;
     --secondary-foreground: 210 20% 98%;
 
     --muted: 240 7% 20%;
@@ -72,7 +72,7 @@
 
     --border: 240 7% 25%;
     --input: 240 7% 25%;
-    --ring: 255 70% 70%;
+    --ring: 139 25% 65%;
     
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -128,15 +128,15 @@
   }
 }
 
-/* Custom styles for ThreadSpire */
+/* Custom styles for MindWeave */
 @layer components {
   .thread-segment {
-    @apply relative px-6 py-4 border-l-2 border-threadspire-purple/30 hover:border-threadspire-purple transition-colors animate-fade-in;
+    @apply relative px-6 py-4 border-l-2 border-mindweave-sage/30 hover:border-mindweave-sage transition-colors animate-fade-in;
   }
 
   .thread-segment::before {
     content: "";
-    @apply absolute top-0 left-[-5px] w-2 h-2 rounded-full bg-threadspire-purple;
+    @apply absolute top-0 left-[-5px] w-2 h-2 rounded-full bg-mindweave-sage;
   }
 
   .thread-segment:last-child {
@@ -144,6 +144,6 @@
   }
 
   .feed-card {
-    @apply p-6 rounded-xl transition-all duration-200 hover:shadow-md bg-white border border-border;
+    @apply p-6 rounded-xl transition-all duration-200 hover:shadow-gentle bg-white border border-border;
   }
 }

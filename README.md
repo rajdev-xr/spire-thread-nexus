@@ -1,20 +1,33 @@
-# Welcome to your Lovable project
 
-## Project info
+# MindWeave
+
+**Weave your thoughts. Discover collective insight.**
+
+MindWeave is a thoughtful platform for reflecting, sharing, and organizing threads of wisdom. Create meaningful content through connected insights, discover wisdom from fellow thinkers, and build upon collective knowledge.
+
+## Project Info
 
 **URL**: https://lovable.dev/projects/387dccdb-0e27-42c0-8523-4e06f2b4ccdc
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **Wisdom Threads**: Create structured sequences of connected insights
+- **Thoughtful Discovery**: Explore wisdom through search, tags, and trending topics
+- **Community Engagement**: React to threads and build upon others' wisdom through forking
+- **Personal Organization**: Bookmark threads and organize them into collections
+- **Reflection Tools**: Track your impact through stats and analytics
 
-**Use Lovable**
+## How to Edit This Code
+
+There are several ways to edit your MindWeave application:
+
+### Use Lovable
 
 Simply visit the [Lovable Project](https://lovable.dev/projects/387dccdb-0e27-42c0-8523-4e06f2b4ccdc) and start prompting.
 
 Changes made via Lovable will be committed automatically to this repo.
 
-**Use your preferred IDE**
+### Use Your Preferred IDE
 
 If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
 
@@ -36,13 +49,13 @@ npm i
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Edit a File Directly in GitHub
 
 - Navigate to the desired file(s).
 - Click the "Edit" button (pencil icon) at the top right of the file view.
 - Make your changes and commit the changes.
 
-**Use GitHub Codespaces**
+### Use GitHub Codespaces
 
 - Navigate to the main page of your repository.
 - Click on the "Code" button (green button) near the top right.
@@ -50,24 +63,37 @@ npm run dev
 - Click on "New codespace" to launch a new Codespace environment.
 - Edit files directly within the Codespace and commit and push your changes once you're done.
 
-## What technologies are used for this project?
+## Technologies Used
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- **Vite** - Fast build tool and dev server
+- **TypeScript** - Type-safe JavaScript
+- **React** - UI framework
+- **Tailwind CSS** - Utility-first styling
+- **Shadcn/ui** - Beautiful, accessible components
 
-## How can I deploy this project?
+## Deployment
 
-Simply open [Lovable](https://lovable.dev/projects/387dccdb-0e27-42c0-8523-4e06f2b4ccdc) and click on Share -> Publish.
+Simply open [Lovable](https://lovable.dev/projects/387dccdb-0e27-42c0-8523-4e06f2b4ccdc) and click on Share → Publish.
 
-## Can I connect a custom domain to my Lovable project?
+## Custom Domain
 
-Yes, you can!
+You can connect a custom domain to your MindWeave project!
 
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
 Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+
+## Philosophy
+
+MindWeave is built on the belief that wisdom emerges through thoughtful reflection and community engagement. Our platform encourages:
+
+- **Quality over quantity**: Focus on meaningful insights rather than volume
+- **Structured thinking**: Organize thoughts into clear, connected sequences
+- **Collective growth**: Build upon others' wisdom while maintaining attribution
+- **Mindful engagement**: Foster thoughtful reactions and discussions
+
+---
+
+*Begin weaving your wisdom today.*
