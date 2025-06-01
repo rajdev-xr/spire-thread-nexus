@@ -1,99 +1,108 @@
+# 🧠 MindWeave — Reflect, Remix, Rewire
 
-# MindWeave
+**MindWeave** is a reflective thinking platform designed for curious minds to share insights, remix ideas, and explore thematic threads across topics like self-growth, career, relationships, and mindfulness.
 
-**Weave your thoughts. Discover collective insight.**
-
-MindWeave is a thoughtful platform for reflecting, sharing, and organizing threads of wisdom. Create meaningful content through connected insights, discover wisdom from fellow thinkers, and build upon collective knowledge.
-
-## Project Info
-
-**URL**: https://lovable.dev/projects/387dccdb-0e27-42c0-8523-4e06f2b4ccdc
-
-## Features
-
-- **Wisdom Threads**: Create structured sequences of connected insights
-- **Thoughtful Discovery**: Explore wisdom through search, tags, and trending topics
-- **Community Engagement**: React to threads and build upon others' wisdom through forking
-- **Personal Organization**: Bookmark threads and organize them into collections
-- **Reflection Tools**: Track your impact through stats and analytics
-
-## How to Edit This Code
-
-There are several ways to edit your MindWeave application:
-
-### Use Lovable
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/387dccdb-0e27-42c0-8523-4e06f2b4ccdc) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-### Use Your Preferred IDE
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-### Edit a File Directly in GitHub
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-### Use GitHub Codespaces
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## Technologies Used
-
-This project is built with:
-
-- **Vite** - Fast build tool and dev server
-- **TypeScript** - Type-safe JavaScript
-- **React** - UI framework
-- **Tailwind CSS** - Utility-first styling
-- **Shadcn/ui** - Beautiful, accessible components
-
-## Deployment
-
-Simply open [Lovable](https://lovable.dev/projects/387dccdb-0e27-42c0-8523-4e06f2b4ccdc) and click on Share → Publish.
-
-## Custom Domain
-
-You can connect a custom domain to your MindWeave project!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
-
-## Philosophy
-
-MindWeave is built on the belief that wisdom emerges through thoughtful reflection and community engagement. Our platform encourages:
-
-- **Quality over quantity**: Focus on meaningful insights rather than volume
-- **Structured thinking**: Organize thoughts into clear, connected sequences
-- **Collective growth**: Build upon others' wisdom while maintaining attribution
-- **Mindful engagement**: Foster thoughtful reactions and discussions
+Built for the MisogiAI MAC Challenge, this full-stack app empowers users to participate in public wisdom, one thread at a time.
 
 ---
 
-*Begin weaving your wisdom today.*
+## 🌐 Live Demo
+
+🌀 [Visit MindWeave Now](https://spire-thread-nexus.vercel.app)
+
+---
+
+## 🚀 Features
+
+### ✍️ Thread-Based Learning & Reflection
+- Create segmented reflective threads (like mini blog chains)
+- Explore public threads by topic (self, career, life, etc.)
+- Remix others’ threads into your own reflections
+
+### 🔐 Auth & Identity
+- Sign up/log in with Supabase Auth
+- Users have personal profiles and can track their creations
+
+### 💬 Community Interactions
+- Reactions (like 🔥, 💡, 💭) for quick emotional feedback
+- Bookmarks and Collections to save threads for later
+- "Remix" functionality to reinterpret other users' threads
+
+### 📚 Admin Tools (Optional for future extension)
+- Moderation panel for curated threads
+- Category/tag management system
+
+---
+
+## 🧱 Built With
+
+- ⚛️ **Next.js 14 (App Router)** — Scalable full-stack framework
+- 💅 **Tailwind CSS** — Clean and responsive UI
+- 🧩 **Supabase** — Auth, Database, and API services
+- 🪄 **Shadcn/ui** — Beautiful headless UI components
+- 🔄 **React Query** — Real-time thread syncing
+- 💾 **Database schema** — Threads, Segments, Reactions, Bookmarks, Remixes
+
+---
+
+## 📁 Folder Structure
+
+mindweave/
+├── src/
+│ ├── components/
+│ ├── app/
+│ ├── lib/
+│ ├── utils/
+│ └── styles/
+├── supabase/
+├── public/
+├── tailwind.config.ts
+└── README.md
+
+---
+
+## 🛠️ Getting Started Locally
+
+```bash
+git clone https://github.com/your-username/mindweave.git
+cd mindweave
+npm install
+npm run dev
+
+Create a .env.local file:
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-public-anon-key
+
+🔑 Supabase Tables Overview
+users: Authenticated user data
+
+threads: Each reflective thread (title, author, category)
+
+segments: Segmented posts within a thread
+
+reactions: Per-segment emoji feedback
+
+bookmarks: Save threads for later
+
+collections: Organize saved threads
+
+remixes: Derived content from other users' threads
+
+💡 How It Works
+Feature	Purpose
+✨ Threads	Reflective microblogs
+➕ Segments	Thought-by-thought expression
+🔁 Remixing	Community idea building
+📌 Bookmarks	Save deep insights
+🔥 Reactions	Show appreciation or resonance
+
+
+📜 MIT License
+🚀 Built by ROHAN RAJ
+
+📍 Special Thanks
+🧠 Inspired by ideas from Twitter threads and digital journaling
+
+📣 Designed to foster mindful reflection and collective wisdom
+
+
